@@ -32,6 +32,44 @@
   --bg: #1C1E1B; --surface: #242722; --fg: #E9EAE3; --muted: #A0A498;
   --line: #363932; --accent: #9DBB97; --accent-soft: #2A3328; color-scheme: dark;
 }
+/* Section accents: one muted hue per section, same weight */
+:root {
+  --c-research: #46668A; --c-research-soft: #E1E8F0;
+  --c-talks: #A8553A; --c-talks-soft: #F2E1D8;
+  --c-teaching: #8A6A20; --c-teaching-soft: #EFE6CF;
+  --c-cv: #7A4C6C; --c-cv-soft: #EEE0EA;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --c-research: #9DB6D2; --c-research-soft: #253039;
+    --c-talks: #E29C7E; --c-talks-soft: #3A2A23;
+    --c-teaching: #D6B56C; --c-teaching-soft: #352E1F;
+    --c-cv: #CC9DBD; --c-cv-soft: #352832;
+  }
+}
+:root[data-theme="dark"] {
+  --c-research: #9DB6D2; --c-research-soft: #253039;
+  --c-talks: #E29C7E; --c-talks-soft: #3A2A23;
+  --c-teaching: #D6B56C; --c-teaching-soft: #352E1F;
+  --c-cv: #CC9DBD; --c-cv-soft: #352832;
+}
+#research { --accent: var(--c-research); --accent-soft: var(--c-research-soft); }
+#talks { --accent: var(--c-talks); --accent-soft: var(--c-talks-soft); }
+#teaching { --accent: var(--c-teaching); --accent-soft: var(--c-teaching-soft); }
+#cv { --accent: var(--c-cv); --accent-soft: var(--c-cv-soft); }
+section.block h2 { display: flex; align-items: baseline; gap: 12px; }
+section.block h2::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); transform: translateY(-2px); }
+section.block .content a:hover { color: var(--accent); }
+nav a[href="#research"]:hover { color: var(--c-research); }
+nav a[href="#talks"]:hover { color: var(--c-talks); }
+nav a[href="#teaching"]:hover { color: var(--c-teaching); }
+nav a[href="#cv"]:hover { color: var(--c-cv); }
+nav a[href="#news"]:hover, nav a[href="#contact"]:hover { color: var(--accent); }
+section.block { background: color-mix(in srgb, var(--accent-soft) 28%, var(--bg)); border-top: 2px solid color-mix(in srgb, var(--accent) 70%, var(--bg)); }
+section.block h2 { color: var(--accent); }
+section.block h2::before { width: 12px; height: 12px; }
+section.block .item, section.block .item:last-child { border-color: color-mix(in srgb, var(--accent) 10%, var(--line)); }
+
 * { box-sizing: border-box; }
 body { margin: 0; }
 img { max-width: 100%; }
@@ -254,9 +292,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <h3>Ph.D. thesis</h3>
         <ul class="items">
           <li class="item">
-            <div class="t"><a href="https://mat.uab.cat/nextcloud/index.php/s/d9XW2GskJksTmi6" target="_blank" rel="noopener">Relatively big projective modules, direct sum decompositions of modules, and representations of finite groups</a></div>
+            <div class="t"><a href="https://www.tdx.cat/handle/10803/696892#page=1" target="_blank" rel="noopener">Relatively big projective modules, direct sum decompositions of modules, and representations of finite groups</a></div>
             <div class="y">2026</div>
-            <div class="m">UAB and Charles University · advisors D. Herbera and P. Příhoda · Excellent cum laude · <span class="links"><a href="https://www.tdx.cat/bitstream/handle/10803/696892/raa1de1.pdf?sequence=1&amp;isAllowed=y" target="_blank" rel="noopener">PDF (TDX)</a><a href="https://portalrecerca.uab.cat/en/studentTheses/relatively-big-projective-modules-direct-sum-decompositions-of-mo/" target="_blank" rel="noopener">UAB record</a></span></div>
+            <div class="m">UAB and Charles University · advisors D. Herbera and P. Příhoda · Excellent cum laude · <span class="links"><a href="https://www.tdx.cat/handle/10803/696892#page=1" target="_blank" rel="noopener">TDX</a><a href="https://portalrecerca.uab.cat/en/studentTheses/relatively-big-projective-modules-direct-sum-decompositions-of-mo/" target="_blank" rel="noopener">UAB record</a></span></div>
             <details class="abs"><summary>Summary</summary><p>The thesis has three parts. First, it studies when direct sums of finitely generated torsion-free modules over a commutative domain are closed under direct summands, with complete answers for local and h-local domains of Krull dimension one. Second, it shows that every countably generated projective module is relatively big over several broad classes of rings, including right noetherian PI-rings and semiperfect rings, and derives decomposition results for endomorphism rings of torsion-free modules. Third, it extends this to locally semiperfect algebras with semisimple artinian ring of quotients, describing projective modules through dimension sequences and decomposition matrices, with group algebras of finite groups over Dedekind domains as the main example.</p></details>
           </li>
         </ul>
