@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Román Álvarez Arias, mathematician. Postdoctoral researcher at the University of Ljubljana working on module theory, representations of finite groups and factorization theory.">
+<meta name="description" content="Román Álvarez Arias, mathematician at IMFM Ljubljana working on modules and rings, representations of finite groups and factorization theory.">
 <title>Román Álvarez Arias</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,6 +130,19 @@ h3:first-child { margin-top: 0; }
 .doi { font-family: var(--mono); font-size: .8rem; }
 @media (max-width: 520px) { .item { grid-template-columns: minmax(0,1fr); } .item .y { grid-row: auto; grid-column: 1; padding-top: 0; } }
 
+details.abs { grid-column: 1 / -1; margin-top: 6px; }
+details.abs summary { cursor: pointer; font-size: .85rem; color: var(--accent); font-weight: 500; list-style: none; display: inline-flex; align-items: center; gap: 6px; }
+details.abs summary::-webkit-details-marker { display: none; }
+details.abs summary::before { content: "+"; font-family: var(--mono); }
+details.abs[open] summary::before { content: "−"; }
+details.abs p { margin: 10px 0 4px; font-size: .95rem; color: var(--fg); max-width: 65ch; }
+.links { display: inline-flex; flex-wrap: wrap; gap: 4px 12px; }
+.links a { font-size: .85rem; }
+.news { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.news li { display: grid; grid-template-columns: 96px minmax(0,1fr); gap: 16px; }
+.news .d { font-family: var(--mono); font-size: .82rem; color: var(--accent); padding-top: 2px; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .news li { grid-template-columns: minmax(0,1fr); gap: 2px; } }
+
 /* Teaching timeline */
 .years { display: flex; flex-direction: column; gap: 22px; }
 .year { display: grid; grid-template-columns: 96px minmax(0,1fr); gap: 16px; }
@@ -156,6 +169,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <a class="brand" href="#top"><span class="mark" aria-hidden="true">⊕</span><span>Román <span class="full">Álvarez Arias</span></span></a>
     <nav aria-label="Sections">
       <ul>
+        <li><a href="#news">News</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#talks">Talks</a></li>
         <li><a href="#teaching">Teaching</a></li>
@@ -173,10 +187,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="eyebrow">Mathematician · Algebra</div>
     <h1>Román Álvarez Arias</h1>
     <p class="lede">I'm a postdoctoral researcher at the University of Ljubljana. I study module and ring theory, integral representations of finite groups, and factorization in monoids, with a focus on direct sum decompositions.</p>
-    <div class="status"><span class="dot" aria-hidden="true"></span>Postdoc with Daniel Smertnig · IMFM, University of Ljubljana · since September 2026</div>
+    <div class="status"><span class="dot" aria-hidden="true"></span>Assistant with a Doctorate · IMFM, Ljubljana · with Daniel Smertnig since September 2026</div>
     <div class="hero-actions">
       <a class="btn primary" href="#research">See my research</a>
       <a class="btn" href="https://drive.google.com/file/d/1K9ykHHkIewIplNvrzEd5SaiAt3LDcMK2/view?usp=sharing" target="_blank" rel="noopener" id="cv-btn">Download CV</a>
+      <a class="btn" href="https://arxiv.org/search/math?searchtype=author&amp;query=%C3%81lvarez%2C+R" target="_blank" rel="noopener">arXiv</a>
       <a class="btn" href="https://orcid.org/0000-0002-5474-0149" target="_blank" rel="noopener">ORCID</a>
     </div>
    </div>
@@ -184,12 +199,27 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
    </div>
   </div>
 
+  <section class="block" id="news">
+    <div class="wrap grid">
+      <h2>News</h2>
+      <div class="content">
+        <ul class="news">
+          <li><span class="d">Jul 2027</span><span>Upcoming: I am on the local organizing committee of the Conference on Rings and Factorizations 2027 in Ljubljana, 12–16 July.</span></li>
+          <li><span class="d">Oct 2026</span><span>Talk at Mathematical Conversations, Faculty of Mathematics and Physics, Ljubljana: <i>How non-unique can factorization be?</i></span></li>
+          <li><span class="d">Sep 2026</span><span>Started as Assistant with a Doctorate at IMFM, Ljubljana, working with Daniel Smertnig.</span></li>
+          <li><span class="d">Jun 2026</span><span>Talk at Groups &amp; Algebras in Bicocca for Young Algebraists, Milan: <i>Infinitely generated integral representations of finite groups</i>.</span></li>
+          <li><span class="d">Feb 2026</span><span>Defended my Ph.D. thesis at UAB and Charles University, graded Excellent cum laude.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="about">
     <div class="wrap grid">
       <h2>About</h2>
       <div class="content">
-        <p>I received my Ph.D. in Mathematics in February 2026 under a joint programme between Universitat Autònoma de Barcelona and Charles University in Prague, supervised by Dolors Herbera and Pavel Příhoda. My dissertation, <a href="https://mat.uab.cat/nextcloud/index.php/s/d9XW2GskJksTmi6" target="_blank" rel="noopener"><i>Relatively big projective modules, direct sum decompositions of modules, and representations of finite groups</i></a>, develops tools to understand infinitely generated projective modules and how modules split into direct sums.</p>
-        <p>Since September 2026 I am part of Daniel Smertnig's research group at the Institute of Mathematics, Physics and Mechanics in Ljubljana, Slovenia.</p>
+        <p>I received my Ph.D. in Mathematics in February 2026 under an international cotutelle between Universitat Autònoma de Barcelona and Charles University in Prague, supervised by Dolors Herbera and Pavel Příhoda. My dissertation develops tools to understand infinitely generated projective modules and how modules split into direct sums.</p>
+        <p>Since September 2026 I am an Assistant with a Doctorate at the Institute of Mathematics, Physics and Mechanics in Ljubljana, in Daniel Smertnig's group, working on noncommutative algebra and representation theory.</p>
       </div>
     </div>
   </section>
@@ -200,31 +230,52 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <div class="content">
         <h3>Interests</h3>
         <ul class="interests">
-          <li><strong>Module and ring theory</strong> and the representation theory of finite groups, including lattices over integral group rings.</li>
-          <li><strong>Monoids and factorization theory</strong>, and their applications to direct sum decompositions of modules and to homological algebra.</li>
+          <li><strong>Modules and rings</strong>, homological algebra and the representation theory of finite groups.</li>
+          <li><strong>Direct sum decompositions</strong> and infinitely generated projective modules over noncommutative rings, integral group rings and orders.</li>
+          <li><strong>Monoids and factorization theory</strong>, and the monoids that encode these decompositions.</li>
         </ul>
 
         <h3>Publications</h3>
         <ul class="items">
           <li class="item">
-            <div class="t"><a href="https://doi.org/10.1142/S0219498825420186" target="_blank" rel="noopener">Relatively big projective modules and their applications to direct sum decompositions</a></div>
+            <div class="t"><a href="https://doi.org/10.4171/RMI/1564" target="_blank" rel="noopener">Torsion-free modules over commutative domains of Krull dimension one</a></div>
             <div class="y">2026</div>
-            <div class="m">with D. Herbera and P. Příhoda · <i>Journal of Algebra and Its Applications</i>, 55 pp. · <span class="doi">10.1142/S0219498825420186</span></div>
+            <div class="m">with D. Herbera and P. Příhoda · <i>Revista Matemática Iberoamericana</i> 42 (2026), no. 1, 123–186 · <span class="links"><a href="https://doi.org/10.4171/RMI/1564" target="_blank" rel="noopener">Journal</a><a href="https://arxiv.org/abs/2406.14665" target="_blank" rel="noopener">arXiv:2406.14665</a></span></div>
+            <details class="abs"><summary>Abstract</summary><p>For a one-dimensional domain R, we ask when the class of arbitrary direct sums of finitely generated torsion-free modules is closed under direct summands. For local R, this happens exactly when every indecomposable finitely generated torsion-free module has local endomorphism ring; if R is also noetherian, exactly when its normalization is local. For h-local R the property passes to all localizations at maximal ideals, and all but at most one of them have every finitely generated ideal 2-generated. The converse holds when R is integrally closed, noetherian semilocal, or noetherian with module-finite normalization. Over domains of finite character, countably generated modules in this class are classified by their genus.</p></details>
           </li>
           <li class="item">
-            <div class="t"><a href="https://doi.org/10.4171/RMI/1564" target="_blank" rel="noopener">Torsion-free modules over commutative domains of Krull dimension one</a></div>
-            <div class="y">2025</div>
-            <div class="m">with D. Herbera and P. Příhoda · <i>Revista Matemática Iberoamericana</i> 42 (2025), no. 1, 123–186 · <span class="doi">10.4171/RMI/1564</span></div>
+            <div class="t"><a href="https://doi.org/10.1142/S0219498825420186" target="_blank" rel="noopener">Relatively big projective modules and their applications to direct sum decompositions</a></div>
+            <div class="y">2026</div>
+            <div class="m">with D. Herbera and P. Příhoda · <i>Journal of Algebra and Its Applications</i>, online ready, 55 pp. · <span class="links"><a href="https://doi.org/10.1142/S0219498825420186" target="_blank" rel="noopener">Journal</a><a href="https://arxiv.org/abs/2504.16568" target="_blank" rel="noopener">arXiv:2504.16568</a></span></div>
+            <details class="abs"><summary>Abstract</summary><p>We study countably generated projective modules that are relatively big with respect to a trace ideal, a notion due to P. Příhoda that generalizes Bass's uniformly big projectives. We show that over right noetherian PI-rings, and over locally semiperfect torsion-free algebras over h-local domains, every countably generated projective module is relatively big. This applies to endomorphism rings of finitely generated torsion-free modules over h-local domains, and lets us characterize the h-local domains of Krull dimension one where direct summands of direct sums of copies of a finitely generated torsion-free module are again direct sums of finitely generated modules.</p></details>
           </li>
         </ul>
 
-        <h3>In preparation</h3>
+        <h3>Ph.D. thesis</h3>
+        <ul class="items">
+          <li class="item">
+            <div class="t"><a href="https://mat.uab.cat/nextcloud/index.php/s/d9XW2GskJksTmi6" target="_blank" rel="noopener">Relatively big projective modules, direct sum decompositions of modules, and representations of finite groups</a></div>
+            <div class="y">2026</div>
+            <div class="m">UAB and Charles University · advisors D. Herbera and P. Příhoda · Excellent cum laude · <span class="links"><a href="https://mat.uab.cat/nextcloud/index.php/s/d9XW2GskJksTmi6" target="_blank" rel="noopener">PDF</a><a href="https://portalrecerca.uab.cat/en/studentTheses/relatively-big-projective-modules-direct-sum-decompositions-of-mo/" target="_blank" rel="noopener">UAB record</a></span></div>
+            <details class="abs"><summary>Summary</summary><p>The thesis has three parts. First, it studies when direct sums of finitely generated torsion-free modules over a commutative domain are closed under direct summands, with complete answers for local and h-local domains of Krull dimension one. Second, it shows that every countably generated projective module is relatively big over several broad classes of rings, including right noetherian PI-rings and semiperfect rings, and derives decomposition results for endomorphism rings of torsion-free modules. Third, it extends this to locally semiperfect algebras with semisimple artinian ring of quotients, describing projective modules through dimension sequences and decomposition matrices, with group algebras of finite groups over Dedekind domains as the main example.</p></details>
+          </li>
+        </ul>
+
+        <h3>Preprints and work in preparation</h3>
         <ul class="items">
           <li class="item"><div class="t">Jaffard families of flat overrings: structure, gluing and package deal theorems</div><div class="m">sole author</div></li>
           <li class="item"><div class="t">Integral representations of metacyclic groups: lattices, genera and generalized lattices</div><div class="m">with D. Herbera and P. Příhoda</div></li>
           <li class="item"><div class="t">Relatively big projective modules over locally semiperfect orders: idempotent ideals and integral group rings</div><div class="m">with D. Herbera and P. Příhoda</div></li>
-          <li class="item"><div class="t">κ-semigroups, κ-monoids and universal κ-extensions: structure, refinement and separativity</div><div class="m">with D. Smertnig</div></li>
+          <li class="item"><div class="t">Universal κ-extensions of commutative monoids: structure, refinement and separativity</div><div class="m">with D. Smertnig</div></li>
           <li class="item"><div class="t">Modules over pullbacks of rings with enough idempotents</div><div class="m">with S. Virili</div></li>
+        </ul>
+
+        <h3>Research projects</h3>
+        <ul class="items">
+          <li class="item"><div class="t">Interplay of arithmetical properties and the algebraic structure in noncommutative rings</div><div class="y">2025–27</div><div class="m">University of Ljubljana · ARIS J1-60025 · PI: Daniel Smertnig · team member</div></li>
+          <li class="item"><div class="t">Classification, structure and regularity properties of rings, modules, C*-algebras and dynamics</div><div class="y">2024–27</div><div class="m">UAB · MICIU PID2023-147110NB-I00 · PIs: Pere Ara and Francesc Perera · team member</div></li>
+          <li class="item"><div class="t">LIGAT – Interactions Lab between Geometry, Algebra and Topology</div><div class="y">2022–25</div><div class="m">UAB · AGAUR 2021 SGR 01015 · PI: Dolors Herbera · team member</div></li>
+          <li class="item"><div class="t">Rings, modules, C*-algebras and dynamics: classification, fine structure and regularity</div><div class="y">2021–24</div><div class="m">UAB · MICINN PID2020-113047GB-I00 · PIs: Pere Ara and Francesc Perera · team member</div></li>
         </ul>
       </div>
     </div>
@@ -236,25 +287,26 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <div class="content">
         <h3>Conferences</h3>
         <ul class="items">
-          <li class="item"><div class="t">Infinitely generated integral representations of finite groups</div><div class="y">Jun 2026</div><div class="m"><span class="tag">Talk</span>Groups &amp; Algebras in Bicocca for Young Algebraists, Milano-Bicocca</div></li>
-          <li class="item"><div class="t">Projective modules over locally semiperfect algebras with semisimple artinian ring of quotients</div><div class="y">Feb 2026</div><div class="m"><span class="tag">Talk</span>Joint Meeting of the Czech, Slovenian, Austrian, Slovak and Catalan Mathematical Societies, Pilsen</div></li>
-          <li class="item"><div class="t">Decomposition matrices from subgroups</div><div class="y">Jun 2024</div><div class="m"><span class="tag">Poster</span>Groups &amp; Algebras in Bicocca for Young Algebraists, Milano-Bicocca</div></li>
-          <li class="item"><div class="t">Torsion-free modules over commutative domains of Krull dimension 1</div><div class="y">2023</div><div class="m"><span class="tag">Talk</span>Rings and Factorizations, University of Graz</div></li>
-          <li class="item"><div class="t">Package deal theorems for localizations of modules over h-local domains and trace ideals</div><div class="y">Jun 2022</div><div class="m"><span class="tag">Poster</span>Groups &amp; Algebras in Bicocca for Young Algebraists, Milano-Bicocca</div></li>
+          <li class="item"><div class="t">Infinitely generated integral representations of finite groups</div><div class="y">Jun 2026</div><div class="m"><span class="tag">Talk</span>Groups &amp; Algebras in Bicocca for Young Algebraists 2026, Univ. Milano-Bicocca</div></li>
+          <li class="item"><div class="t">Projective modules over locally semiperfect algebras with semisimple artinian ring of quotients</div><div class="y">Feb 2026</div><div class="m"><span class="tag">Talk</span>Joint Meeting of the Czech, Slovenian, Austrian, Slovak and Catalan Mathematical Societies, Plzeň · workshop Representation Theory and Commutative and Non-Commutative Algebra</div></li>
+          <li class="item"><div class="t">Decomposition matrices from subgroups</div><div class="y">Jun 2024</div><div class="m"><span class="tag">Poster</span>Groups &amp; Algebras in Bicocca for Young Algebraists 2024, Univ. Milano-Bicocca</div></li>
+          <li class="item"><div class="t">Torsion-free modules over commutative domains of Krull dimension 1</div><div class="y">Sep 2023</div><div class="m"><span class="tag">Talk</span>Conference on Rings and Factorizations 2023, University of Graz</div></li>
+          <li class="item"><div class="t">Package deal theorems for localizations of modules over h-local domains and trace ideals</div><div class="y">Jun 2022</div><div class="m"><span class="tag">Poster</span>Groups &amp; Algebras in Bicocca for Young Algebraists 2022, Univ. Milano-Bicocca</div></li>
         </ul>
 
-        <h3>Seminars</h3>
+        <h3>Invited seminar talks</h3>
         <ul class="items">
-          <li class="item"><div class="t">Projective modules over locally semiperfect algebras with semisimple artinian ring of quotients</div><div class="y">Oct 2025</div><div class="m">Seminar of Algebra and Functional Analysis, University of Ljubljana</div></li>
-          <li class="item"><div class="t">The monoid of relatively big projective modules</div><div class="y">Oct 2025</div><div class="m">Seminar of Algebra and Functional Analysis, University of Ljubljana</div></li>
+          <li class="item"><div class="t">How non-unique can factorization be?</div><div class="y">Oct 2026</div><div class="m">Mathematical Conversations, Faculty of Mathematics and Physics, University of Ljubljana</div></li>
+          <li class="item"><div class="t">Projective modules over locally semiperfect algebras with semisimple artinian ring of quotients</div><div class="y">Oct 2025</div><div class="m">Algebra and Functional Analysis Seminar, University of Ljubljana · also at the Ring Theory Seminar, UAB</div></li>
+          <li class="item"><div class="t">The monoid of relatively big projective modules</div><div class="y">Oct 2025</div><div class="m">Algebra and Functional Analysis Seminar, University of Ljubljana</div></li>
           <li class="item"><div class="t">Decomposition matrices from subgroups</div><div class="y">Oct 2024</div><div class="m">Ring Theory Seminar, UAB</div></li>
           <li class="item"><div class="t">Package deal theorems for localizations over h-local domains</div><div class="y">Feb 2023</div><div class="m">Ring Theory Seminar, UAB</div></li>
-          <li class="item"><div class="t">Projective modules over pullbacks of rings</div><div class="y">Sep 2022</div><div class="m">University of Brno</div></li>
+          <li class="item"><div class="t">Projective modules over pullbacks of rings</div><div class="y">Sep 2022</div><div class="m">Algebra Seminar, Masaryk University, Brno</div></li>
           <li class="item"><div class="t">Infinitely generated projective modules over integral group rings</div><div class="y">May 2021</div><div class="m">Ring Theory Seminar, UAB</div></li>
         </ul>
 
         <h3>Also attended</h3>
-        <p class="small">Conference on Rings and Polynomials, TU Graz (2025) · Joint Perspectives in Geometry, Algebra and Topology, CRM Barcelona (2024) · Silting Theory, Algebras and Representations, Charles University (2022) · Conference on Rings and Polynomials, Graz (2021)</p>
+        <p class="small">Conference on Rings and Polynomials, TU Graz (2025) · Joint Perspectives in Geometry, Algebra and Topology, CRM Barcelona (2024) · EMS Advanced Course: Geometry, Algebra and Topology in Machine Learning, AI and Big Data, CRM Barcelona (2024) · Silting Theory, Algebras and Representations, Charles University (2022) · Conference on Rings and Polynomials, Graz (2021)</p>
       </div>
     </div>
   </section>
@@ -264,22 +316,27 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <h2>Teaching</h2>
       <div class="content">
         <div class="years">
-          <div class="year"><div class="lbl">2026</div><ul>
+          <div class="year"><div class="lbl">2026–27</div><ul>
+            <li><strong>Symbolic Computation</strong>, teaching assistant <span>· M.Sc. Mathematics &amp; Computer Science, University of Ljubljana · Summer, 30 h</span></li>
             <li><strong>General Topology</strong>, video course on Udemy <span>· in preparation ·</span> <a href="https://drive.google.com/file/d/1SzY2zDdAGeb7GUiCj74KEnnNvhlvendg/view?usp=share_link" target="_blank" rel="noopener">Read Chapter 1</a></li>
           </ul></div>
           <div class="year"><div class="lbl">2023–24</div><ul>
-            <li><strong>Seminars of Linear Algebra I</strong> <span>· B.Sc. Mathematics, UAB · Fall</span></li>
-            <li><strong>Problems of Linear Algebra II</strong> <span>· B.Sc. Mathematics, UAB · Spring</span></li>
-            <li><strong>B.Sc. thesis co-supervision</strong> with Dolors Herbera <span>· <i>Factorització en monoides i dominis d'integritat</i></span></li>
+            <li><strong>Linear Algebra I</strong>, seminar sessions <span>· B.Sc. Mathematics, UAB · Winter, 18 h</span></li>
+            <li><strong>Linear Algebra II</strong>, problem sessions <span>· B.Sc. Mathematics, UAB · Summer, 30 h</span></li>
           </ul></div>
           <div class="year"><div class="lbl">2022–23</div><ul>
-            <li><strong>Problems of Linear Algebra II</strong> <span>· B.Sc. Mathematics, UAB · Spring</span></li>
+            <li><strong>Linear Algebra II</strong>, problem sessions <span>· B.Sc. Mathematics, UAB · Summer, 30 h</span></li>
           </ul></div>
           <div class="year"><div class="lbl">2021–22</div><ul>
-            <li><strong>Seminars of Fonaments de les Matemàtiques</strong> <span>· B.Sc. Mathematics, UAB · Fall</span></li>
-            <li><strong>Problems of Linear Algebra II</strong> <span>· B.Sc. Mathematics, UAB · Spring</span></li>
+            <li><strong>Foundations of Mathematics</strong> (Fonaments de les Matemàtiques), seminar sessions <span>· B.Sc. Mathematics, UAB · Winter, 36 h</span></li>
+            <li><strong>Linear Algebra II</strong>, problem sessions <span>· B.Sc. Mathematics, UAB · Summer, 30 h</span></li>
           </ul></div>
         </div>
+
+        <h3 style="margin-top:36px">Supervision</h3>
+        <ul class="items">
+          <li class="item"><div class="t">Isaac Jones Sánchez · B.Sc. thesis</div><div class="y">2023–24</div><div class="m"><i>Factorització en monoides i dominis d'integritat</i> (Factorization in monoids and integral domains) · UAB, co-supervised with Dolors Herbera</div></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -288,29 +345,43 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap grid">
       <h2>CV</h2>
       <div class="content">
-        <h3>Employment</h3>
+        <h3>Academic positions</h3>
         <ul class="items">
-          <li class="item"><div class="t">Postdoctoral researcher</div><div class="y">2026–27</div><div class="m">University of Ljubljana, with Daniel Smertnig</div></li>
-          <li class="item"><div class="t">Predoctoral fellow (FI researcher)</div><div class="y">2021–25</div><div class="m">Universitat Autònoma de Barcelona, with Dolors Herbera</div></li>
+          <li class="item"><div class="t">Assistant with a Doctorate degree</div><div class="y">Sep 2026 –</div><div class="m">IMFM, Ljubljana · noncommutative algebra and representation theory · supervisor Daniel Smertnig</div></li>
+          <li class="item"><div class="t">Predoctoral researcher (Joan Oró fellow)</div><div class="y">2021–25</div><div class="m">Department of Mathematics, Universitat Autònoma de Barcelona · four-year contract funded by the Generalitat de Catalunya</div></li>
         </ul>
         <h3>Education</h3>
         <ul class="items">
-          <li class="item"><div class="t">Ph.D. in Mathematics</div><div class="y">2020–26</div><div class="m"><a href="https://www.uab.cat/ca/doctorats/matematiques" target="_blank" rel="noopener">UAB</a> and <a href="https://www.mff.cuni.cz/en/math/ka/phd-studies" target="_blank" rel="noopener">Charles University</a> (Algebra, Number Theory and Mathematical Logic). Supervisors: Dolors Herbera and Pavel Příhoda</div></li>
-          <li class="item"><div class="t">Master in Advanced Mathematics</div><div class="y">2019–20</div><div class="m"><a href="https://mat.ub.edu/masteradvancedmathematics/" target="_blank" rel="noopener">Universitat de Barcelona</a></div></li>
-          <li class="item"><div class="t">Double Bachelor's in Mathematics and Physics</div><div class="y">2014–19</div><div class="m"><a href="https://www.uniovi.es/estudia/grados/ciencias/matematicasfisicaa" target="_blank" rel="noopener">Universidad de Oviedo</a></div></li>
+          <li class="item"><div class="t">Ph.D. in Mathematics and Ph.D. in Algebra, Number Theory and Mathematical Logic</div><div class="y">2020–26</div><div class="m"><a href="https://www.uab.cat/ca/doctorats/matematiques" target="_blank" rel="noopener">UAB</a> and <a href="https://www.mff.cuni.cz/en/math/ka/phd-studies" target="_blank" rel="noopener">Charles University</a>, international cotutelle · Excellent cum laude · supervisors Dolors Herbera and Pavel Příhoda</div></li>
+          <li class="item"><div class="t">M.Sc. in Advanced Mathematics</div><div class="y">2019–20</div><div class="m"><a href="https://mat.ub.edu/masteradvancedmathematics/" target="_blank" rel="noopener">Universitat de Barcelona</a> · thesis <i>Infinitely generated projective modules over integral group rings</i> · 9.5/10</div></li>
+          <li class="item"><div class="t">B.Sc. in Mathematics and B.Sc. in Physics</div><div class="y">2014–19</div><div class="m"><a href="https://www.uniovi.es/estudia/grados/ciencias/matematicasfisicaa" target="_blank" rel="noopener">Universidad de Oviedo</a> · theses <i>Introduction to homological algebra in module theory</i> (10/10) and <i>Topological solitons in field theory: vortices</i> (9.2/10)</div></li>
         </ul>
-        <h3>Grants and fellowships</h3>
+        <h3>Fellowships and grants</h3>
         <ul class="items">
-          <li class="item"><div class="t">Borsa Ferran Sunyer i Balaguer</div><div class="y">2025</div><div class="m">Two-month research stay</div></li>
-          <li class="item"><div class="t">Joan Oró FI predoctoral fellowship</div><div class="y">2021–24</div><div class="m">Generalitat de Catalunya</div></li>
+          <li class="item"><div class="t">Ferran Sunyer i Balaguer Fellowship</div><div class="y">2025</div><div class="m">Fundació Ferran Sunyer i Balaguer · two-month research stay at the University of Ljubljana · €3,000</div></li>
+          <li class="item"><div class="t">Joan Oró Predoctoral Fellowship (2021/FI-B00913)</div><div class="y">2021</div><div class="m">Generalitat de Catalunya · four-year predoctoral fellowship · €71,400</div></li>
         </ul>
         <h3>Research stays</h3>
         <ul class="items">
-          <li class="item"><div class="t">University of Ljubljana</div><div class="y">Oct–Dec 2025</div><div class="m">with Daniel Smertnig</div></li>
-          <li class="item"><div class="t">Charles University, Prague</div><div class="y">Oct–Dec 2024</div><div class="m">with Pavel Příhoda</div></li>
-          <li class="item"><div class="t">Charles University, Prague</div><div class="y">Sep–Dec 2022</div><div class="m">with Pavel Příhoda</div></li>
-          <li class="item"><div class="t">Charles University, Prague</div><div class="y">May–Jun 2022</div><div class="m">with Pavel Příhoda</div></li>
+          <li class="item"><div class="t">University of Ljubljana, Slovenia · 9 weeks</div><div class="y">Oct–Dec 2025</div><div class="m">Host Daniel Smertnig · Ferran Sunyer i Balaguer Fellowship</div></li>
+          <li class="item"><div class="t">Charles University, Prague · 9 weeks</div><div class="y">Oct–Dec 2024</div><div class="m">Host Pavel Příhoda · Ph.D. cotutelle</div></li>
+          <li class="item"><div class="t">Charles University, Prague · 14 weeks</div><div class="y">Sep–Dec 2022</div><div class="m">Host Pavel Příhoda · Ph.D. cotutelle</div></li>
+          <li class="item"><div class="t">Charles University, Prague · 3 weeks</div><div class="y">May–Jun 2022</div><div class="m">Host Pavel Příhoda · Ph.D. cotutelle</div></li>
         </ul>
+        <h3>Service</h3>
+        <ul class="items">
+          <li class="item"><div class="t">Conference on Rings and Factorizations 2027</div><div class="y">Jul 2027</div><div class="m">University of Ljubljana · local organizing committee</div></li>
+          <li class="item"><div class="t">Ring Theory Seminar, UAB</div><div class="y">2021–24</div><div class="m">Co-organizer with Eduard Vilalta and Simone Virili</div></li>
+          <li class="item"><div class="t">Referee</div><div class="m">International journals, including <i>Communications in Algebra</i> and <i>Communications of the Korean Mathematical Society</i></div></li>
+          <li class="item"><div class="t">Royal Spanish Mathematical Society (RSME)</div><div class="y">since 2024</div><div class="m">Member</div></li>
+        </ul>
+        <h3>Advanced training</h3>
+        <ul class="items">
+          <li class="item"><div class="t">Algebraic Geometry · Liran Shaul, Charles University</div><div class="y">2022–23</div><div class="m">Master/Ph.D. course, 50 h</div></li>
+          <li class="item"><div class="t">Rings and Modules · Simone Virili, Università di Udine</div><div class="y">2020–21</div><div class="m">Master/Ph.D. course, 28 h</div></li>
+        </ul>
+        <h3>Languages</h3>
+        <p>Spanish (native) · English (advanced, C1) · Catalan (intermediate) · French (basic)</p>
       </div>
     </div>
   </section>
@@ -322,13 +393,16 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div class="contact-card">
           <div class="small">Happy to talk about modules, monoids or collaborations.</div>
           <div class="row">
-            <span class="email" id="email">roman9496@gmail.com</span>
+            <span class="email" id="email">roman.alvarez@imfm.si</span>
             <button class="btn" id="copy-btn" type="button">Copy email</button>
           </div>
           <div class="row small">
-            <span>Institute of Mathematics, Physics and Mechanics · Ljubljana, Slovenia</span>
-            <span>·</span>
+            <span>Also: <span style="user-select: all">roman9496@gmail.com</span></span>
+          </div>
+          <div class="small">Institute of Mathematics, Physics and Mechanics (IMFM)<br>Jadranska ulica 19, 1000 Ljubljana, Slovenia</div>
+          <div class="row small links">
             <a href="https://orcid.org/0000-0002-5474-0149" target="_blank" rel="noopener">ORCID 0000-0002-5474-0149</a>
+            <a href="https://arxiv.org/search/math?searchtype=author&amp;query=%C3%81lvarez%2C+R" target="_blank" rel="noopener">arXiv</a>
           </div>
         </div>
       </div>
