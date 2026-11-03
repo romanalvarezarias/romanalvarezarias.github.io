@@ -139,6 +139,13 @@ h1 em { font-style: italic; color: var(--accent); }
 .portrait img { display: block; width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--line); box-shadow: 0 0 0 6px var(--surface), 0 0 0 7px var(--accent-soft); }
 .portrait figcaption { margin-top: 14px; font-size: .8rem; color: var(--muted); text-align: center; }
 @media (max-width: 760px) { .hero-grid { grid-template-columns: minmax(0,1fr); gap: 28px; } .portrait { order: -1; max-width: 220px; } }
+/* Language switch */
+.lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 2px; background: var(--surface); flex: none; }
+.lang button { font: 600 .75rem var(--sans); letter-spacing: .04em; border: 0; background: transparent; color: var(--muted); padding: 4px 10px; border-radius: 999px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+.nav-right { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 640px) { .nav-right { gap: 10px; } }
+
 /* Tabs */
 [hidden] { display: none !important; }
 nav a[aria-current="page"] { color: var(--fg); font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
@@ -216,6 +223,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#home"><span class="mark" aria-hidden="true">⊕</span><span>Román <span class="full">Álvarez Arias</span></span></a>
+    <div class="nav-right">
     <nav aria-label="Sections">
       <ul>
         <li><a href="#home">Home</a></li>
@@ -226,6 +234,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
+    </div>
   </div>
 </header>
 
@@ -254,7 +267,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <h2>News</h2>
       <div class="content">
         <ul class="news">
-          <li><span class="d">Jul 2027</span><span>Upcoming: I am on the local organizing committee of the Conference on Rings and Factorizations 2027 in Ljubljana, 12–16 July.</span></li>
+          <li><span class="d">Jul 2027</span><span>Upcoming: I am on the local organizing committee of the <a href="https://rings2027.fmf.uni-lj.si" target="_blank" rel="noopener">Conference on Rings and Factorizations 2027</a> in Ljubljana, 12–16 July.</span></li>
           <li><span class="d">Jan 2027</span><span>Upcoming: I will attend the <a href="https://jovenesrsme27.unizar.es" target="_blank" rel="noopener">VIII Congreso de Jóvenes Investigadores de la RSME</a>, Universidad de Zaragoza, 18–22 January.</span></li>
           <li><span class="d">Oct 2026</span><span>Talk at Mathematical Conversations, Faculty of Mathematics and Physics, Ljubljana: <i>How non-unique can factorization be?</i> (<a href="https://drive.google.com/file/d/1v8sljBjvtaRCCiqv7cCil-EsZeJDiWs3/view?usp=share_link" target="_blank" rel="noopener">slides</a>).</span></li>
           <li><span class="d">Sep 2026</span><span>Started as Assistant with a Doctorate at IMFM, Ljubljana, working with Daniel Smertnig.</span></li>
@@ -371,7 +384,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div class="years">
           <div class="year"><div class="lbl">2026–27</div><ul>
             <li><strong>Symbolic Computation</strong>, teaching assistant <span>· M.Sc. Mathematics &amp; Computer Science, University of Ljubljana · Summer, 30 h</span></li>
-            <li><strong>General Topology</strong>, video course on Udemy <span>· in preparation ·</span> <span class="links"><a href="https://drive.google.com/file/d/1Khtv5GPIw4j3i1mGzCEJCwIVl7n2ziJt/view?usp=sharing" target="_blank" rel="noopener">Cover</a><a href="https://drive.google.com/file/d/1PuTGcs_2fp7W7W09Ps_JKJGavE_U_wUw/view?usp=sharing" target="_blank" rel="noopener">Table of contents</a><a href="https://drive.google.com/file/d/1ZjilprjHEMUmausNR0Nc2NeZISAimlzG/view?usp=sharing" target="_blank" rel="noopener">Chapter 1</a></span></li>
+            <li><strong>General Topology</strong>, video course on Udemy <span>· in preparation ·</span> <span class="links"><a href="https://drive.google.com/file/d/1PuTGcs_2fp7W7W09Ps_JKJGavE_U_wUw/view?usp=sharing" target="_blank" rel="noopener">Cover</a><a href="https://drive.google.com/file/d/1Khtv5GPIw4j3i1mGzCEJCwIVl7n2ziJt/view?usp=sharing" target="_blank" rel="noopener">Table of contents</a><a href="https://drive.google.com/file/d/1ZjilprjHEMUmausNR0Nc2NeZISAimlzG/view?usp=sharing" target="_blank" rel="noopener">Chapter 1</a></span></li>
           </ul></div>
           <div class="year"><div class="lbl">2023–24</div><ul>
             <li><strong>Linear Algebra I</strong>, seminar sessions <span>· B.Sc. Mathematics, UAB · Winter, 18 h</span></li>
@@ -423,7 +436,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         </ul>
         <h3>Service</h3>
         <ul class="items">
-          <li class="item"><div class="t">Conference on Rings and Factorizations 2027</div><div class="y">Jul 2027</div><div class="m">University of Ljubljana · local organizing committee</div></li>
+          <li class="item"><div class="t"><a href="https://rings2027.fmf.uni-lj.si" target="_blank" rel="noopener">Conference on Rings and Factorizations 2027</a></div><div class="y">Jul 2027</div><div class="m">University of Ljubljana · local organizing committee</div></li>
           <li class="item"><div class="t">Ring Theory Seminar, UAB</div><div class="y">2021–24</div><div class="m">Co-organizer with Eduard Vilalta and Simone Virili</div></li>
           <li class="item"><div class="t">Referee</div><div class="m">International journals, including <i>Communications in Algebra</i> and <i>Communications of the Korean Mathematical Society</i></div></li>
           <li class="item"><div class="t">Royal Spanish Mathematical Society (RSME)</div><div class="y">since 2024</div><div class="m">Member</div></li>
@@ -473,6 +486,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     const alias = { news: 'home', about: 'home', top: 'home' };
     const tabs = document.querySelectorAll('[data-page]');
     const links = document.querySelectorAll('nav a');
+    let current = 'home';
+    const LABELS = { en: {research:'Research',talks:'Talks',teaching:'Teaching',cv:'CV',contact:'Contact'}, es: {research:'Investigación',talks:'Charlas',teaching:'Docencia',cv:'CV',contact:'Contacto'} };
+    function retitle() {
+      const l = LABELS[window.__lang === 'es' ? 'es' : 'en'];
+      document.title = current === 'home' ? 'Román Álvarez Arias' : 'Román Álvarez Arias · ' + l[current];
+    }
+    window.__retitle = retitle;
     function show(name, scroll) {
       if (!pages.includes(name)) name = 'home';
       tabs.forEach(el => { el.hidden = el.dataset.page !== name; });
@@ -480,7 +500,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         if (a.getAttribute('href') === '#' + name) a.setAttribute('aria-current', 'page');
         else a.removeAttribute('aria-current');
       });
-      document.title = name === 'home' ? 'Román Álvarez Arias' : 'Román Álvarez Arias · ' + ({research:'Research',talks:'Talks',teaching:'Teaching',cv:'CV',contact:'Contact'})[name];
+      current = name; retitle();
       if (scroll) window.scrollTo(0, 0);
     }
     function fromHash(scroll) {
@@ -507,14 +527,53 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   const btn = document.getElementById('copy-btn');
   btn.addEventListener('click', () => {
     const text = document.getElementById('email').textContent;
-    const done = () => { btn.textContent = 'Copied'; setTimeout(() => btn.textContent = 'Copy email', 1800); };
+    const done = () => { const es = window.__lang === 'es'; btn.textContent = es ? 'Copiado' : 'Copied'; setTimeout(() => btn.textContent = es ? 'Copiar email' : 'Copy email', 1800); };
     const fallback = () => {
       const r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
-      const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected, press ⌘C';
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = window.__lang === 'es' ? 'Seleccionado, pulsa ⌘C' : 'Selected, press ⌘C';
     };
     try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
   });
 </script>
+
+<script>
+  (function () {
+    const ES = {"Home": "Inicio", "Research": "Investigación", "Talks": "Charlas", "Teaching": "Docencia", "CV": "CV", "Contact": "Contacto", "Mathematician · Algebra": "Matemático · Álgebra", "I'm a postdoctoral researcher at the University of Ljubljana. I study module and ring theory, integral representations of finite groups, and factorization in monoids, with a focus on direct sum decompositions.": "Soy investigador posdoctoral en la Universidad de Liubliana. Estudio la teoría de módulos y anillos, las representaciones enteras de grupos finitos y la factorización en monoides, con especial interés en las descomposiciones en suma directa.", "Assistant with a Doctorate · IMFM, Ljubljana · with Daniel Smertnig since September 2026": "Asistente doctor · IMFM, Liubliana · con Daniel Smertnig desde septiembre de 2026", "See my research": "Ver mi investigación", "Download CV": "Descargar CV", "Brno, Czech Republic": "Brno, República Checa", "News": "Novedades", "Upcoming: I am on the local organizing committee of the": "Próximamente: formo parte del comité organizador local de la", "in Ljubljana, 12–16 July.": "en Liubliana, del 12 al 16 de julio.", "Upcoming: I will attend the": "Próximamente: asistiré al", ", Universidad de Zaragoza, 18–22 January.": ", Universidad de Zaragoza, del 18 al 22 de enero.", "Talk at Mathematical Conversations, Faculty of Mathematics and Physics, Ljubljana:": "Charla en Mathematical Conversations, Facultad de Matemáticas y Física, Liubliana:", "slides": "diapositivas", "Started as Assistant with a Doctorate at IMFM, Ljubljana, working with Daniel Smertnig.": "Empiezo como asistente doctor en el IMFM de Liubliana, trabajando con Daniel Smertnig.", "Talk at Groups & Algebras in Bicocca for Young Algebraists, Milan:": "Charla en Groups & Algebras in Bicocca for Young Algebraists, Milán:", "Defended my Ph.D. thesis at UAB and Charles University, graded Excellent cum laude.": "Defiendo mi tesis doctoral en la UAB y la Charles University, con la calificación de Excelente cum laude.", "About": "Sobre mí", "I received my Ph.D. in Mathematics in February 2026 under an international cotutelle between Universitat Autònoma de Barcelona and Charles University in Prague, supervised by Dolors Herbera and Pavel Příhoda. My dissertation develops tools to understand infinitely generated projective modules and how modules split into direct sums.": "Me doctoré en Matemáticas en febrero de 2026 en régimen de cotutela internacional entre la Universitat Autònoma de Barcelona y la Charles University de Praga, bajo la dirección de Dolors Herbera y Pavel Příhoda. Mi tesis desarrolla herramientas para entender los módulos proyectivos infinitamente generados y cómo los módulos se descomponen en sumas directas.", "Since September 2026 I am an Assistant with a Doctorate at the Institute of Mathematics, Physics and Mechanics in Ljubljana, in Daniel Smertnig's group, working on noncommutative algebra and representation theory.": "Desde septiembre de 2026 soy asistente doctor en el Instituto de Matemáticas, Física y Mecánica de Liubliana, en el grupo de Daniel Smertnig, donde trabajo en álgebra no conmutativa y teoría de representaciones.", "Interests": "Intereses", "Modules and rings": "Módulos y anillos", ", homological algebra and the representation theory of finite groups.": ", álgebra homológica y teoría de representaciones de grupos finitos.", "Direct sum decompositions": "Descomposiciones en suma directa", "and infinitely generated projective modules over noncommutative rings, integral group rings and orders.": "y módulos proyectivos infinitamente generados sobre anillos no conmutativos, anillos de grupo enteros y órdenes.", "Monoids and factorization theory": "Monoides y teoría de la factorización", ", and the monoids that encode these decompositions.": ", y los monoides que codifican estas descomposiciones.", "Publications": "Publicaciones", "with D. Herbera and P. Příhoda ·": "con D. Herbera y P. Příhoda ·", "Journal": "Revista", "Abstract": "Resumen", "For a one-dimensional domain R, we ask when the class of arbitrary direct sums of finitely generated torsion-free modules is closed under direct summands. For local R, this happens exactly when every indecomposable finitely generated torsion-free module has local endomorphism ring; if R is also noetherian, exactly when its normalization is local. For h-local R the property passes to all localizations at maximal ideals, and all but at most one of them have every finitely generated ideal 2-generated. The converse holds when R is integrally closed, noetherian semilocal, or noetherian with module-finite normalization. Over domains of finite character, countably generated modules in this class are classified by their genus.": "Para un dominio R de dimensión uno, estudiamos cuándo la clase de las sumas directas arbitrarias de módulos libres de torsión finitamente generados es cerrada por sumandos directos. Si R es local, esto ocurre exactamente cuando todo módulo indescomponible, libre de torsión y finitamente generado tiene anillo de endomorfismos local; si además R es noetheriano, exactamente cuando su normalización es local. Si R es h-local, la propiedad pasa a todas las localizaciones en ideales maximales, y todas salvo a lo sumo una tienen todo ideal finitamente generado 2-generado. El recíproco se cumple si R es íntegramente cerrado, noetheriano semilocal, o noetheriano con normalización finita como módulo. Sobre dominios de carácter finito, los módulos numerablemente generados de esta clase están clasificados por su género.", ", online ready, 55 pp. ·": ", online ready, 55 pp. ·", "We study countably generated projective modules that are relatively big with respect to a trace ideal, a notion due to P. Příhoda that generalizes Bass's uniformly big projectives. We show that over right noetherian PI-rings, and over locally semiperfect torsion-free algebras over h-local domains, every countably generated projective module is relatively big. This applies to endomorphism rings of finitely generated torsion-free modules over h-local domains, and lets us characterize the h-local domains of Krull dimension one where direct summands of direct sums of copies of a finitely generated torsion-free module are again direct sums of finitely generated modules.": "Estudiamos los módulos proyectivos numerablemente generados que son relativamente grandes respecto a un ideal traza, una noción de P. Příhoda que generaliza los proyectivos uniformemente grandes de Bass. Probamos que sobre PI-anillos noetherianos por la derecha, y sobre álgebras libres de torsión localmente semiperfectas sobre dominios h-locales, todo módulo proyectivo numerablemente generado es relativamente grande. Esto se aplica a anillos de endomorfismos de módulos libres de torsión finitamente generados sobre dominios h-locales, y permite caracterizar los dominios h-locales de dimensión de Krull uno en los que los sumandos directos de sumas directas de copias de un módulo libre de torsión finitamente generado vuelven a ser sumas directas de módulos finitamente generados.", "Ph.D. thesis": "Tesis doctoral", "UAB and Charles University · advisors D. Herbera and P. Příhoda · Excellent cum laude ·": "UAB y Charles University · directores D. Herbera y P. Příhoda · Excelente cum laude ·", "UAB record": "Ficha de la UAB", "Summary": "Resumen", "The thesis has three parts. First, it studies when direct sums of finitely generated torsion-free modules over a commutative domain are closed under direct summands, with complete answers for local and h-local domains of Krull dimension one. Second, it shows that every countably generated projective module is relatively big over several broad classes of rings, including right noetherian PI-rings and semiperfect rings, and derives decomposition results for endomorphism rings of torsion-free modules. Third, it extends this to locally semiperfect algebras with semisimple artinian ring of quotients, describing projective modules through dimension sequences and decomposition matrices, with group algebras of finite groups over Dedekind domains as the main example.": "La tesis tiene tres partes. Primero, estudia cuándo las sumas directas de módulos libres de torsión finitamente generados sobre un dominio conmutativo son cerradas por sumandos directos, con respuestas completas para dominios locales y h-locales de dimensión de Krull uno. Segundo, demuestra que todo módulo proyectivo numerablemente generado es relativamente grande sobre varias clases amplias de anillos, incluidos los PI-anillos noetherianos por la derecha y los anillos semiperfectos, y obtiene resultados de descomposición para anillos de endomorfismos de módulos libres de torsión. Tercero, extiende esto a álgebras localmente semiperfectas con anillo de cocientes semisimple artiniano, describiendo los módulos proyectivos mediante sucesiones de dimensión y matrices de descomposición, con las álgebras de grupo de grupos finitos sobre dominios de Dedekind como ejemplo principal.", "Preprints and work in preparation": "Preprints y trabajos en preparación", "sole author": "autor único", "with D. Herbera and P. Příhoda": "con D. Herbera y P. Příhoda", "with D. Smertnig": "con D. Smertnig", "with S. Virili": "con S. Virili", "Research projects": "Proyectos de investigación", "University of Ljubljana · ARIS J1-60025 · PI: Daniel Smertnig · team member": "Universidad de Liubliana · ARIS J1-60025 · IP: Daniel Smertnig · miembro del equipo", "UAB · MICIU PID2023-147110NB-I00 · PIs: Pere Ara and Francesc Perera · team member": "UAB · MICIU PID2023-147110NB-I00 · IP: Pere Ara y Francesc Perera · miembro del equipo", "UAB · AGAUR 2021 SGR 01015 · PI: Dolors Herbera · team member": "UAB · AGAUR 2021 SGR 01015 · IP: Dolors Herbera · miembro del equipo", "UAB · MICINN PID2020-113047GB-I00 · PIs: Pere Ara and Francesc Perera · team member": "UAB · MICINN PID2020-113047GB-I00 · IP: Pere Ara y Francesc Perera · miembro del equipo", "Conferences": "Congresos", "Talk": "Charla", "Poster": "Póster", ", Plzeň · workshop Representation Theory and Commutative and Non-Commutative Algebra": ", Plzeň · sesión Representation Theory and Commutative and Non-Commutative Algebra", ", University of Graz": ", Universidad de Graz", "Invited seminar talks": "Charlas invitadas en seminarios", "Mathematical Conversations, Faculty of Mathematics and Physics, University of Ljubljana ·": "Mathematical Conversations, Facultad de Matemáticas y Física, Universidad de Liubliana ·", "Slides": "Diapositivas", "Algebra and Functional Analysis Seminar, University of Ljubljana · also at the Ring Theory Seminar, UAB": "Seminario de Álgebra y Análisis Funcional, Universidad de Liubliana · también en el Seminario de Teoría de Anillos, UAB", "Algebra and Functional Analysis Seminar, University of Ljubljana": "Seminario de Álgebra y Análisis Funcional, Universidad de Liubliana", "Ring Theory Seminar, UAB": "Seminario de Teoría de Anillos, UAB", "Algebra Seminar, Masaryk University, Brno": "Seminario de Álgebra, Universidad Masaryk, Brno", "Also attended": "Otros congresos a los que he asistido", "Symbolic Computation": "Computación Simbólica", ", teaching assistant": ", profesor asistente", "· M.Sc. Mathematics & Computer Science, University of Ljubljana · Summer, 30 h": "· Máster en Matemáticas e Informática, Universidad de Liubliana · semestre de verano, 30 h", "General Topology": "Topología General", ", video course on Udemy": ", curso en vídeo en Udemy", "· in preparation ·": "· en preparación ·", "Cover": "Portada", "Table of contents": "Índice", "Chapter 1": "Capítulo 1", "Linear Algebra I": "Álgebra Lineal I", ", seminar sessions": ", seminarios", "· B.Sc. Mathematics, UAB · Winter, 18 h": "· Grado en Matemáticas, UAB · semestre de invierno, 18 h", "Linear Algebra II": "Álgebra Lineal II", ", problem sessions": ", clases de problemas", "· B.Sc. Mathematics, UAB · Summer, 30 h": "· Grado en Matemáticas, UAB · semestre de verano, 30 h", "Foundations of Mathematics": "Fundamentos de las Matemáticas", "(Fonaments de les Matemàtiques), seminar sessions": "(Fonaments de les Matemàtiques), seminarios", "· B.Sc. Mathematics, UAB · Winter, 36 h": "· Grado en Matemáticas, UAB · semestre de invierno, 36 h", "Supervision": "Dirección de trabajos", "Isaac Jones Sánchez · B.Sc. thesis": "Isaac Jones Sánchez · Trabajo de Fin de Grado", "(Factorization in monoids and integral domains) · UAB, co-supervised with Dolors Herbera": "(Factorización en monoides y dominios de integridad) · UAB, codirigido con Dolors Herbera", "Academic positions": "Puestos académicos", "Assistant with a Doctorate degree": "Asistente doctor", "IMFM, Ljubljana · noncommutative algebra and representation theory · supervisor Daniel Smertnig": "IMFM, Liubliana · álgebra no conmutativa y teoría de representaciones · supervisor Daniel Smertnig", "Predoctoral researcher (Joan Oró fellow)": "Investigador predoctoral (beca Joan Oró)", "Department of Mathematics, Universitat Autònoma de Barcelona · four-year contract funded by the Generalitat de Catalunya": "Departamento de Matemáticas, Universitat Autònoma de Barcelona · contrato de cuatro años financiado por la Generalitat de Catalunya", "Education": "Formación", "Ph.D. in Mathematics and Ph.D. in Algebra, Number Theory and Mathematical Logic": "Doctorado en Matemáticas y Doctorado en Álgebra, Teoría de Números y Lógica Matemática", "and": "y", "Charles University": "Charles University", ", international cotutelle · Excellent cum laude · supervisors Dolors Herbera and Pavel Příhoda": ", cotutela internacional · Excelente cum laude · directores Dolors Herbera y Pavel Příhoda", "M.Sc. in Advanced Mathematics": "Máster en Matemática Avanzada", "· thesis": "· TFM", "B.Sc. in Mathematics and B.Sc. in Physics": "Grado en Matemáticas y Grado en Física", "· theses": "· TFG", "(10/10) and": "(10/10) y", "Fellowships and grants": "Becas y ayudas", "Ferran Sunyer i Balaguer Fellowship": "Beca Ferran Sunyer i Balaguer", "Fundació Ferran Sunyer i Balaguer · two-month research stay at the University of Ljubljana · €3,000": "Fundació Ferran Sunyer i Balaguer · estancia de investigación de dos meses en la Universidad de Liubliana · 3.000 €", "Joan Oró Predoctoral Fellowship (2021/FI-B00913)": "Beca predoctoral Joan Oró (2021/FI-B00913)", "Generalitat de Catalunya · four-year predoctoral fellowship · €71,400": "Generalitat de Catalunya · beca predoctoral de cuatro años · 71.400 €", "Research stays": "Estancias de investigación", "University of Ljubljana, Slovenia · 9 weeks": "Universidad de Liubliana, Eslovenia · 9 semanas", "Host Daniel Smertnig · Ferran Sunyer i Balaguer Fellowship": "Anfitrión Daniel Smertnig · Beca Ferran Sunyer i Balaguer", "Charles University, Prague · 9 weeks": "Charles University, Praga · 9 semanas", "Host Pavel Příhoda · Ph.D. cotutelle": "Anfitrión Pavel Příhoda · cotutela de doctorado", "Charles University, Prague · 14 weeks": "Charles University, Praga · 14 semanas", "Charles University, Prague · 3 weeks": "Charles University, Praga · 3 semanas", "Service": "Servicio a la comunidad", "University of Ljubljana · local organizing committee": "Universidad de Liubliana · comité organizador local", "Co-organizer with Eduard Vilalta and Simone Virili": "Coorganizador con Eduard Vilalta y Simone Virili", "Referee": "Revisor", "International journals, including": "Revistas internacionales, entre ellas", "Royal Spanish Mathematical Society (RSME)": "Real Sociedad Matemática Española (RSME)", "since 2024": "desde 2024", "Member": "Socio", "Advanced training": "Formación avanzada", "Algebraic Geometry · Liran Shaul, Charles University": "Geometría Algebraica · Liran Shaul, Charles University", "Master/Ph.D. course, 50 h": "Curso de máster/doctorado, 50 h", "Rings and Modules · Simone Virili, Università di Udine": "Anillos y Módulos · Simone Virili, Università di Udine", "Master/Ph.D. course, 28 h": "Curso de máster/doctorado, 28 h", "Languages": "Idiomas", "Spanish (native) · English (advanced, C1) · Catalan (intermediate) · French (basic)": "Español (nativo) · Inglés (avanzado, C1) · Catalán (intermedio) · Francés (básico)", "Happy to talk about modules, monoids or collaborations.": "Encantado de hablar de módulos, monoides o colaboraciones.", "Copy email": "Copiar email", "Also:": "También:", "Institute of Mathematics, Physics and Mechanics (IMFM)": "Instituto de Matemáticas, Física y Mecánica (IMFM)", "Jadranska ulica 19, 1000 Ljubljana, Slovenia": "Jadranska ulica 19, 1000 Liubliana, Eslovenia", "Ljubljana · Barcelona · Prague": "Liubliana · Barcelona · Praga"};
+    const MONTHS = { Jan:'ene', Feb:'feb', Mar:'mar', Apr:'abr', May:'may', Jun:'jun', Jul:'jul', Aug:'ago', Sep:'sept', Oct:'oct', Nov:'nov', Dec:'dic' };
+    const norm = t => t.replace(/\s+/g, ' ').trim();
+    const nodes = [];
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: n => (n.parentElement && !n.parentElement.closest('script,style') && n.nodeValue.trim()) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+    });
+    while (walker.nextNode()) {
+      const n = walker.currentNode, key = norm(n.nodeValue);
+      const isDate = !!n.parentElement.closest('.y, .news .d');
+      if (ES[key] !== undefined || isDate) nodes.push({ n, en: n.nodeValue, key, isDate });
+    }
+    const img = document.querySelector('.portrait img');
+    const altEn = img ? img.alt : '';
+    function apply(lang) {
+      document.documentElement.lang = lang;
+      window.__lang = lang;
+      nodes.forEach(o => {
+        if (lang === 'en') { o.n.nodeValue = o.en; return; }
+        const lead = o.en.match(/^\s*/)[0], trail = o.en.match(/\s*$/)[0];
+        const es = o.isDate ? o.key.replace(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b/g, m => MONTHS[m]) : ES[o.key];
+        o.n.nodeValue = lead + es + trail;
+      });
+      if (img) img.alt = lang === 'es' ? 'Román Álvarez Arias en Brno, con la catedral de San Pedro y San Pablo al fondo' : altEn;
+      document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+      const cb = document.getElementById('copy-btn'); if (cb) cb.textContent = lang === 'es' ? 'Copiar email' : 'Copy email';
+      if (window.__retitle) window.__retitle();
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+    document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => apply(b.dataset.lang)));
+    let saved = 'en';
+    try { saved = localStorage.getItem('lang') === 'es' ? 'es' : 'en'; } catch (e) {}
+    apply(saved);
+  })();
+</script>
+
 
 </body>
 </html>
