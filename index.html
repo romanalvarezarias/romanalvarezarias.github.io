@@ -139,6 +139,17 @@ h1 em { font-style: italic; color: var(--accent); }
 .portrait img { display: block; width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--line); box-shadow: 0 0 0 6px var(--surface), 0 0 0 7px var(--accent-soft); }
 .portrait figcaption { margin-top: 14px; font-size: .8rem; color: var(--muted); text-align: center; }
 @media (max-width: 760px) { .hero-grid { grid-template-columns: minmax(0,1fr); gap: 28px; } .portrait { order: -1; max-width: 220px; } }
+/* Tabs */
+[hidden] { display: none !important; }
+nav a[aria-current="page"] { color: var(--fg); font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+nav a[href="#home"][aria-current="page"], nav a[href="#contact"][aria-current="page"] { text-decoration-color: var(--accent); }
+nav a[href="#research"][aria-current="page"] { text-decoration-color: var(--c-research); }
+nav a[href="#talks"][aria-current="page"] { text-decoration-color: var(--c-talks); }
+nav a[href="#teaching"][aria-current="page"] { text-decoration-color: var(--c-teaching); }
+nav a[href="#cv"][aria-current="page"] { text-decoration-color: var(--c-cv); }
+main { min-height: 70vh; }
+.page-tab > section.block:first-child { border-top-width: 0; }
+
 /* Sections */
 section.block { border-top: 1px solid var(--line); padding-block: 56px; }
 .grid { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; }
@@ -204,10 +215,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><span class="mark" aria-hidden="true">⊕</span><span>Román <span class="full">Álvarez Arias</span></span></a>
+    <a class="brand" href="#home"><span class="mark" aria-hidden="true">⊕</span><span>Román <span class="full">Álvarez Arias</span></span></a>
     <nav aria-label="Sections">
       <ul>
-        <li><a href="#news">News</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#talks">Talks</a></li>
         <li><a href="#teaching">Teaching</a></li>
@@ -219,6 +230,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </header>
 
 <main id="top">
+  <div class="page-tab" data-page="home">
   <div class="wrap hero">
    <div class="hero-grid">
    <div class="hero-text">
@@ -243,6 +255,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <div class="content">
         <ul class="news">
           <li><span class="d">Jul 2027</span><span>Upcoming: I am on the local organizing committee of the Conference on Rings and Factorizations 2027 in Ljubljana, 12–16 July.</span></li>
+          <li><span class="d">Jan 2027</span><span>Upcoming: I will attend the <a href="https://jovenesrsme27.unizar.es" target="_blank" rel="noopener">VIII Congreso de Jóvenes Investigadores de la RSME</a>, Universidad de Zaragoza, 18–22 January.</span></li>
           <li><span class="d">Oct 2026</span><span>Talk at Mathematical Conversations, Faculty of Mathematics and Physics, Ljubljana: <i>How non-unique can factorization be?</i> (<a href="https://drive.google.com/file/d/1v8sljBjvtaRCCiqv7cCil-EsZeJDiWs3/view?usp=share_link" target="_blank" rel="noopener">slides</a>).</span></li>
           <li><span class="d">Sep 2026</span><span>Started as Assistant with a Doctorate at IMFM, Ljubljana, working with Daniel Smertnig.</span></li>
           <li><span class="d">Jun 2026</span><span>Talk at Groups &amp; Algebras in Bicocca for Young Algebraists, Milan: <i>Infinitely generated integral representations of finite groups</i>.</span></li>
@@ -262,7 +275,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </div>
   </section>
 
-  <section class="block" id="research">
+  </div>
+
+  <section class="block page-tab" id="research" data-page="research">
     <div class="wrap grid">
       <h2>Research</h2>
       <div class="content">
@@ -319,7 +334,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </div>
   </section>
 
-  <section class="block" id="talks">
+  <section class="block page-tab" id="talks" data-page="talks">
     <div class="wrap grid">
       <h2>Talks</h2>
       <div class="content">
@@ -349,14 +364,14 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </div>
   </section>
 
-  <section class="block" id="teaching">
+  <section class="block page-tab" id="teaching" data-page="teaching">
     <div class="wrap grid">
       <h2>Teaching</h2>
       <div class="content">
         <div class="years">
           <div class="year"><div class="lbl">2026–27</div><ul>
             <li><strong>Symbolic Computation</strong>, teaching assistant <span>· M.Sc. Mathematics &amp; Computer Science, University of Ljubljana · Summer, 30 h</span></li>
-            <li><strong>General Topology</strong>, video course on Udemy <span>· in preparation ·</span> <a href="https://drive.google.com/file/d/1ZjilprjHEMUmausNR0Nc2NeZISAimlzG/view?usp=sharing" target="_blank" rel="noopener">Read Chapter 1</a></li>
+            <li><strong>General Topology</strong>, video course on Udemy <span>· in preparation ·</span> <span class="links"><a href="https://drive.google.com/file/d/1Khtv5GPIw4j3i1mGzCEJCwIVl7n2ziJt/view?usp=sharing" target="_blank" rel="noopener">Cover</a><a href="https://drive.google.com/file/d/1PuTGcs_2fp7W7W09Ps_JKJGavE_U_wUw/view?usp=sharing" target="_blank" rel="noopener">Table of contents</a><a href="https://drive.google.com/file/d/1ZjilprjHEMUmausNR0Nc2NeZISAimlzG/view?usp=sharing" target="_blank" rel="noopener">Chapter 1</a></span></li>
           </ul></div>
           <div class="year"><div class="lbl">2023–24</div><ul>
             <li><strong>Linear Algebra I</strong>, seminar sessions <span>· B.Sc. Mathematics, UAB · Winter, 18 h</span></li>
@@ -379,7 +394,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </div>
   </section>
 
-  <section class="block" id="cv">
+  <section class="block page-tab" id="cv" data-page="cv">
     <div class="wrap grid">
       <h2>CV</h2>
       <div class="content">
@@ -424,7 +439,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </div>
   </section>
 
-  <section class="block" id="contact">
+  <section class="block page-tab" id="contact" data-page="contact">
     <div class="wrap grid">
       <h2>Contact</h2>
       <div class="content">
@@ -451,6 +466,42 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <footer>
   <div class="wrap"><span>© 2026 Román Álvarez Arias</span><span>Ljubljana · Barcelona · Prague</span></div>
 </footer>
+
+<script>
+  (function () {
+    const pages = ['home', 'research', 'talks', 'teaching', 'cv', 'contact'];
+    const alias = { news: 'home', about: 'home', top: 'home' };
+    const tabs = document.querySelectorAll('[data-page]');
+    const links = document.querySelectorAll('nav a');
+    function show(name, scroll) {
+      if (!pages.includes(name)) name = 'home';
+      tabs.forEach(el => { el.hidden = el.dataset.page !== name; });
+      links.forEach(a => {
+        if (a.getAttribute('href') === '#' + name) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
+      document.title = name === 'home' ? 'Román Álvarez Arias' : 'Román Álvarez Arias · ' + ({research:'Research',talks:'Talks',teaching:'Teaching',cv:'CV',contact:'Contact'})[name];
+      if (scroll) window.scrollTo(0, 0);
+    }
+    function fromHash(scroll) {
+      const h = (location.hash || '').slice(1);
+      show(alias[h] || h || 'home', scroll);
+    }
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const h = a.getAttribute('href').slice(1);
+      const name = alias[h] || h;
+      if (!pages.includes(name)) return;
+      e.preventDefault();
+      try { history.pushState(null, '', '#' + name); } catch (err) {}
+      show(name, true);
+    });
+    window.addEventListener('hashchange', () => fromHash(true));
+    window.addEventListener('popstate', () => fromHash(true));
+    fromHash(false);
+  })();
+</script>
 
 <script>
   const btn = document.getElementById('copy-btn');
