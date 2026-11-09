@@ -39,6 +39,7 @@
   --c-teaching: #8A6A20; --c-teaching-soft: #EFE6CF;
   --c-cv: #7A4C6C; --c-cv-soft: #EEE0EA;
   --c-books: #8E2F3B; --c-books-soft: #F3E1E3;
+  --c-found: #6A4A9C; --c-alg: #3F7A45; --c-geo: #33679E;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -47,6 +48,7 @@
     --c-teaching: #D6B56C; --c-teaching-soft: #352E1F;
     --c-cv: #CC9DBD; --c-cv-soft: #352832;
     --c-books: #E8909A; --c-books-soft: #3A2226;
+    --c-found: #B9A3E0; --c-alg: #97C79A; --c-geo: #9CBDE4;
   }
 }
 :root[data-theme="dark"] {
@@ -55,12 +57,19 @@
   --c-teaching: #D6B56C; --c-teaching-soft: #352E1F;
   --c-cv: #CC9DBD; --c-cv-soft: #352832;
     --c-books: #E8909A; --c-books-soft: #3A2226;
+    --c-found: #B9A3E0; --c-alg: #97C79A; --c-geo: #9CBDE4;
 }
 #research { --accent: var(--c-research); --accent-soft: var(--c-research-soft); }
 #talks { --accent: var(--c-talks); --accent-soft: var(--c-talks-soft); }
 #teaching { --accent: var(--c-teaching); --accent-soft: var(--c-teaching-soft); }
 #cv { --accent: var(--c-cv); --accent-soft: var(--c-cv-soft); }
 #books { --accent: var(--c-books); --accent-soft: var(--c-books-soft); }
+#books .b-found { --accent: var(--c-found); }
+#books .b-alg { --accent: var(--c-alg); }
+#books .b-geo { --accent: var(--c-geo); }
+#books .books .bt { display: flex; align-items: baseline; gap: 10px; }
+#books .books .bt::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; transform: translateY(-1px); }
+#books .books li { border-bottom-color: color-mix(in srgb, var(--accent) 22%, var(--line)); }
 section.block h2 { display: flex; align-items: baseline; gap: 12px; }
 section.block h2::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); transform: translateY(-2px); }
 section.block .content a:hover { color: var(--accent); }
@@ -221,7 +230,9 @@ details.abs p { margin: 10px 0 4px; font-size: .95rem; color: var(--fg); max-wid
 .books .bt { font-family: var(--serif); font-size: 1.08rem; }
 .books .links { display: flex; margin-top: 4px; }
 .books li.featured { grid-column: 1 / -1; }
-@media (max-width: 600px) { .books { grid-template-columns: minmax(0, 1fr); } }
+.books { grid-template-columns: minmax(0, 1fr); }
+.books li { display: flex; align-items: baseline; justify-content: space-between; gap: 6px 24px; flex-wrap: wrap; padding-block: 10px; }
+.books li .links { margin-top: 0; }
 
 /* Teaching timeline */
 .years { display: flex; flex-direction: column; gap: 22px; }
@@ -437,12 +448,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <h2>Books and online courses</h2>
       <div class="content">
         <div class="books-intro"><svg class="spg-logo" viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="13" fill="#8e2f3b"/><g fill="none" stroke="#fbf8f4" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 16 L32 48 L45 16"/><path d="M24.4 30 H39.6"/></g></svg><p>A series of mathematics books in Spanish, each with a companion video course on <a href="https://academia-ashen-mu.vercel.app" target="_blank" rel="noopener">Sin Pérdida de Generalidad</a>. All titles are in preparation.</p></div>
-        <h4 class="branch">Foundations</h4>
-        <ul class="books">
-          <li><div class="bt" lang="es">Lenguaje matemático</div><!-- Amazon: add <a href="AMAZON_URL" target="_blank" rel="noopener">Amazon</a> inside .links --></li>
+        <h4 class="branch b-found">Foundations</h4>
+        <ul class="books b-found">
+          <li class="featured"><div class="bt" lang="es">Lenguaje matemático</div><span class="links"><a href="https://drive.google.com/file/d/1c5mfw9ehumB6igPmUpw5FONQV7Yd20tq/view?usp=share_link" target="_blank" rel="noopener">Cover</a><a href="https://drive.google.com/file/d/1c9Ht8N_fTOWbJE4Bw7cjd-dUp0cSWo8f/view?usp=sharing" target="_blank" rel="noopener">Table of contents</a><a href="https://drive.google.com/file/d/1WeGbiuhcrzWpRP0GGl9LP-z9_GxD1GLE/view?usp=sharing" target="_blank" rel="noopener">Chapter 1</a></span><!-- Amazon: add <a href="AMAZON_URL" target="_blank" rel="noopener">Amazon</a> inside .links --></li>
         </ul>
-        <h4 class="branch">Algebra</h4>
-        <ul class="books">
+        <h4 class="branch b-alg">Algebra</h4>
+        <ul class="books b-alg">
           <li><div class="bt" lang="es">Álgebra lineal</div><!-- Amazon: add <a href="AMAZON_URL" target="_blank" rel="noopener">Amazon</a> inside .links --></li>
           <li><div class="bt" lang="es">Estructuras algebraicas</div><!-- Amazon: add <a href="AMAZON_URL" target="_blank" rel="noopener">Amazon</a> inside .links --></li>
           <li><div class="bt" lang="es">Ecuaciones algebraicas</div><!-- Amazon: add <a href="AMAZON_URL" target="_blank" rel="noopener">Amazon</a> inside .links --></li>
@@ -450,11 +461,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <li><div class="bt" lang="es">Álgebra homológica</div><!-- Amazon: add <a href="AMAZON_URL" target="_blank" rel="noopener">Amazon</a> inside .links --></li>
           <li><div class="bt" lang="es">Representaciones de grupos finitos</div><!-- Amazon: add <a href="AMAZON_URL" target="_blank" rel="noopener">Amazon</a> inside .links --></li>
         </ul>
-        <h4 class="branch">Geometry and topology</h4>
-        <ul class="books">
+        <h4 class="branch b-geo">Geometry and topology</h4>
+        <ul class="books b-geo">
+          <li><div class="bt" lang="es">Geometría afín y proyectiva</div><!-- Amazon: add <a href="AMAZON_URL" target="_blank" rel="noopener">Amazon</a> inside .links --></li>
           <li class="featured"><div class="bt" lang="es">Topología general</div><span class="links"><a href="https://drive.google.com/file/d/1PuTGcs_2fp7W7W09Ps_JKJGavE_U_wUw/view?usp=sharing" target="_blank" rel="noopener">Cover</a><a href="https://drive.google.com/file/d/1Khtv5GPIw4j3i1mGzCEJCwIVl7n2ziJt/view?usp=sharing" target="_blank" rel="noopener">Table of contents</a><a href="https://drive.google.com/file/d/1cMunJtD1qB7SNo26kWYClL6G-aCgy4qR/view?usp=sharing" target="_blank" rel="noopener">Chapter 1</a></span><!-- Amazon: add <a href="AMAZON_URL" target="_blank" rel="noopener">Amazon</a> inside .links --></li>
           <li><div class="bt" lang="es">Topología algebraica</div><!-- Amazon: add <a href="AMAZON_URL" target="_blank" rel="noopener">Amazon</a> inside .links --></li>
-          <li><div class="bt" lang="es">Geometría afín y proyectiva</div><!-- Amazon: add <a href="AMAZON_URL" target="_blank" rel="noopener">Amazon</a> inside .links --></li>
         </ul>
       </div>
     </div>
